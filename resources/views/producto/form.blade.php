@@ -19,13 +19,9 @@
     <label for="nombre"> Nombre </label>
     <input type="text" class="form-control" value="{{isset($producto->nombre)?$producto->nombre:old('nombre')}}" name="nombre" id="nombre">
 
-    {{-- <label for="idcategoria" class=" pt-2"> Categoria </label>
-    <input type="number" class="form-control" value="{{isset($producto->idcategoria)?$producto->idcategoria:old('idcategoria')}}" name="idcategoria" id="idcategoria"> --}}
     {{ Form::label('Categoria') }}
     {{ Form::select('idcategoria', $categorias ,$producto->idcategoria, ['class'=>'form-control'.($errors->has('idcategoria')?'is-invalid':'')]) }}
 
-    {{-- <label for="idespecie" class=" pt-2"> Especie </label>
-    <input type="number" class="form-control" value="{{isset($producto->idespecie)?$producto->idespecie:old('idespecie')}}" name="idespecie" id="idespecie"> --}}
     {{ Form::label('Especie') }}
     {{ Form::select('idespecie', $especies ,$producto->idespecie, ['class'=>'form-control'.($errors->has('idespecie')?'is-invalid':'')]) }}
 

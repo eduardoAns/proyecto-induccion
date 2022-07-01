@@ -127,17 +127,13 @@ class ProductoMascotaController extends Controller
             'precio'=>'required|numeric',
             'descripcion'=>'required|string|max:100',
         ];
-
         $mensaje =[
             'required'=>'El :attribute es requerido',
         ];
-
         if($request->hasFile('foto')){
             $campos=['foto'=>'required|max:10000|mimes:jpeg,png,jpg'];
             $mensaje=['foto.required'=>'La foto es requerida'];
-
          }
-
         $this->validate($request, $campos, $mensaje);
 
         //extraer campos
@@ -155,7 +151,6 @@ class ProductoMascotaController extends Controller
         ProductoMascota::where('id','=',$id)->update($datosProducto);
 
         $producto = ProductoMascota::findOrFail($id);
-
         //return view('empleado.edit',compact('empleado'));
         return redirect('producto')->with('mensaje','Empleado Modificado con exito');;
     }
